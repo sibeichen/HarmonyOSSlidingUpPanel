@@ -1,0 +1,21 @@
+{
+  "name": "@chensibei/slidinguppanel",
+  "version": "1.0.0",
+  "main": "index.ets",
+  "license": "Apache-2.0",
+  "dependencies": {},
+  "devDependencies": {},
+  "type": "module",
+  "types": "",
+  "keywords": [
+    "SlidingUpPanel",
+    "OpenHarmony",
+    "HarmonyOS"
+  ],
+  "author": {
+    "name": "chensibei" , "email": "sibeichen@petalmail.com"
+  },
+  "description": "HarmonyOSSlidingUpPanel是一个可以上下拖动的面板布局，可以利用它完成复杂抽屉式界面",
+  "repository": "https://gitee.com/yishowxyz/HarmonyOSSlidingUpPanel",
+  "homepage": "https://gitee.com/chensibei",
+}

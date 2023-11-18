@@ -1,0 +1,9 @@
+{
+  "module": {
+    "name": "SlidingUpPanel",
+    "type": "har",
+    "deviceTypes": [
+      "default"
+    ]
+  }
+}
