@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@ohos/slidinguppanel": "file:../slidinguppanel"
+  "@chensibei/slidinguppanel": "file:../slidinguppanel"
 
   }
 }
