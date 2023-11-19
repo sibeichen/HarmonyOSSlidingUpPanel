@@ -10,7 +10,8 @@
   "keywords": [
     "SlidingUpPanel",
     "OpenHarmony",
-    "HarmonyOS"
+    "HarmonyOS",
+    "Sliding"
   ],
   "author": {
     "name": "chensibei" , "email": "sibeichen@petalmail.com"
