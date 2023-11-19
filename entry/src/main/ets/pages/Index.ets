@@ -10,7 +10,7 @@ struct Index {
   @State listItemData:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm"]
 
   slidingUpPanelState:SlidingUpPanelState;
-  @State slidOffsetY:number =0;
+  @State slidOffsetY:number = 0;
   private listScroll:Scroller = new Scroller();
   private configurator :SlidingUpPanelConfigurator;
   private slidingUpPanelController :SlidingUpPanelController = new SlidingUpPanelController();
@@ -26,10 +26,10 @@ struct Index {
    Column(){
      SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,controller:this.slidingUpPanelController,
        bottomLayout:()=>{
-         //自定义底层布局
+         //自定义底层布局   @Builder
       this.bottomLayout();
      },upLayout:()=>{
-         //自定义上层布局
+         //自定义上层布局   @Builder
          this.upLayout();
      },stateCallback:(state:SlidingUpPanelState)=>{
          //滑动状态回调

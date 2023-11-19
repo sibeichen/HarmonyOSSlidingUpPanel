@@ -1,5 +1,3 @@
-
-import { SlidingUpPanelState } from './SlidingUpPanelState';
 /*
  * Copyright (C) 2022 Huawei Device Co., Ltd.
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,12 +12,14 @@ import { SlidingUpPanelState } from './SlidingUpPanelState';
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import { SlidingUpPanelState } from './SlidingUpPanelState';
+
 export class SlidingUpPanelConfigurator {
 
    panelPositionYWeightArray:number[] = [0,0.3,0.8]; //对应的top middle bottom的起始坐标的占比，0为最顶部
    fastSlidTime:number = 200; //快速滑动判定时间 200ms
    slidAnimationDuration:number = 200; //自动滑动时候执行的滑动动画时间
-  initState:SlidingUpPanelState = SlidingUpPanelState.BOTTOM; //初始状态
+  initState:SlidingUpPanelState = SlidingUpPanelState.MIDDLE; //初始状态
   bottomLayoutBackGround:ResourceColor = "#FFFFFF";  //底层的背景色
   upLayoutBackGround:ResourceColor = "#bbbbbb"; //上层的背景色
 

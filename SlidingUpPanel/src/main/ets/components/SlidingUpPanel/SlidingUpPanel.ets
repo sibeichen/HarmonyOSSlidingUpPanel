@@ -12,13 +12,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+
+
 import { SlidingUpPanelConfigurator } from './SlidingUpPanelConfigurator';
 import { SlidingUpPanelController } from './SlidingUpPanelController';
 import { SlidingUpPanelState } from './SlidingUpPanelState';
 
 
-// const FAST_SLID_TIME = 200; //快速滑动判定时间 200ms
-// const SLID_ANIMATION_DURATION = 200; //自动滑动时候执行的滑动动画时间
 @Component
 export struct  SlidingUpPanel {
   configurator?: SlidingUpPanelConfigurator;
