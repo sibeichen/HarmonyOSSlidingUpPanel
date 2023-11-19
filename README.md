@@ -1,7 +1,7 @@
 # HarmonyOSSlidingUpPanel
 
 ### 介绍
-SlidingUpPanel是HarmonyOS的一个可以上下拖动的面板布局,且可以在上中下位置滑动切换状态并自动吸附，可以利用它完成复杂抽屉式界面
+SlidingUpPanel是HarmonyOS平台的一个可以上下拖动的面板布局,且可以在上中下位置滑动切换状态并自动吸附，可以利用它完成复杂抽屉式界面
 
 ![Refresh](screenshot/preview.gif)
 ### 使用说明
