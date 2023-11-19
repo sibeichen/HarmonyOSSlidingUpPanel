@@ -4,7 +4,7 @@
   "description": "Please describe the basic information.",
   "main": "",
   "author": "",
-  "license": "ISC",
+  "license": "Apache-2.0",
   "dependencies": {
   "@chensibei/slidinguppanel": "file:../slidinguppanel"
 

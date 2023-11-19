@@ -1,4 +1,4 @@
-import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState} from '@ohos/slidinguppanel'
+import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState} from '@chensibei/slidinguppanel'
 import Logger from '../common/utils/Logger';
 
 @Entry
@@ -50,7 +50,7 @@ struct Index {
   private upLayout() {
     Row(){
       Image($r("app.media.app_icon")).width(50).height(50)
-    }.width("100%").position({y:-25}).justifyContent(FlexAlign.Center);
+    }.width("100%").position({y:-25}).justifyContent(FlexAlign.Center).opacity(0.3);
     Column() {
 
       List({space:2,scroller:this.listScroll}){

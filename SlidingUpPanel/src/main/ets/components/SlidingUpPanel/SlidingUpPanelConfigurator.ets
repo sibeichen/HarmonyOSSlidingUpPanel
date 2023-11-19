@@ -20,8 +20,8 @@ export class SlidingUpPanelConfigurator {
    fastSlidTime:number = 200; //快速滑动判定时间 200ms
    slidAnimationDuration:number = 200; //自动滑动时候执行的滑动动画时间
   initState:SlidingUpPanelState = SlidingUpPanelState.BOTTOM; //初始状态
-  bottomLayoutBackGround:ResourceColor = "#FFFFFF";
-  upLayoutBackGround:ResourceColor = "#bbbbbb";
+  bottomLayoutBackGround:ResourceColor = "#FFFFFF";  //底层的背景色
+  upLayoutBackGround:ResourceColor = "#bbbbbb"; //上层的背景色
 
   setPanelPositionYWeightArray(panelPositionYWeightArray:number[]):void{
     this.panelPositionYWeightArray = panelPositionYWeightArray;
