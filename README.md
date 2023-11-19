@@ -45,7 +45,7 @@ SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,controller:thi
 
 
 #### Demo
-https://gitee.com/chensibei/HarmonyOSSlidingUpPanel/blob/master/entry/src/main/ets/pages/Index.ets
+https://gitee.com/ironbrothers/HarmonyOSSlidingUpPanel/blob/master/entry/src/main/ets/pages/Index.ets
 
 联系作者: sibeichen@petalmail.com
 

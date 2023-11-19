@@ -1,5 +1,5 @@
 {
-  "name": "@chensibei/slidinguppanel",
+  "name": "@ironbrothers/slidinguppanel",
   "version": "1.0.0",
   "main": "index.ets",
   "license": "Apache-2.0",
@@ -17,6 +17,6 @@
     "name": "chensibei" , "email": "sibeichen@petalmail.com"
   },
   "description": "SlidingUpPanel是HarmonyOS平台的一个可以上下拖动的面板布局,且可以在上中下位置滑动切换状态并自动吸附，可以利用它完成复杂抽屉式界面",
-  "repository": "https://gitee.com/chensibei/HarmonyOSSlidingUpPanel",
-  "homepage": "https://gitee.com/chensibei",
+  "repository": "https://gitee.com/ironbrothers/HarmonyOSSlidingUpPanel",
+  "homepage": "https://gitee.com/ironbrothers",
 }

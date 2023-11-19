@@ -6,7 +6,7 @@
   "author": "",
   "license": "Apache-2.0",
   "dependencies": {
-  "@chensibei/slidinguppanel": "file:../slidinguppanel"
+  "@ironbrothers/slidinguppanel": "file:../slidinguppanel"
 
   }
 }
