@@ -47,7 +47,7 @@ SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,controller:thi
 #### Demo
 https://gitee.com/ironbrothers/HarmonyOSSlidingUpPanel/blob/master/entry/src/main/ets/pages/Index.ets
 
-联系作者: sibeichen@petalmail.com
+问题反馈: sibeichen@petalmail.com
 
 #### 开源协议
 本项目基于 Apache License 2.0
