@@ -1,4 +1,4 @@
-import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState} from '@chensibei/slidinguppanel'
+import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState,SlidingUpPanelController} from '@chensibei/slidinguppanel'
 import Logger from '../common/utils/Logger';
 import { MathUtils } from '../common/utils/MathUtils';
 
@@ -12,8 +12,8 @@ struct Index {
   slidingUpPanelState:SlidingUpPanelState;
   @State slidOffsetY:number =0;
   private listScroll:Scroller = new Scroller();
-
   private configurator :SlidingUpPanelConfigurator;
+  private slidingUpPanelController :SlidingUpPanelController = new SlidingUpPanelController();
 
   aboutToAppear() {
     //滑动面板的初始化参数
@@ -24,7 +24,7 @@ struct Index {
 
   build() {
    Column(){
-     SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,
+     SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,controller:this.slidingUpPanelController,
        bottomLayout:()=>{
          //自定义底层布局
       this.bottomLayout();
@@ -56,9 +56,16 @@ struct Index {
 
       List({space:2,scroller:this.listScroll}){
         ListItem(){
-          Row(){
-            Text("SlidingUpPanel").height(200)
-          }.width("100%").justifyContent(FlexAlign.Center).alignItems(VerticalAlign.Center)
+          Column(){
+            Button("点击切换布局状态").onClick(()=>{
+              this.listScroll.scrollToIndex(0)
+              if(this.slidingUpPanelState===SlidingUpPanelState.MIDDLE) {
+                this.slidingUpPanelController.updateLayoutState(SlidingUpPanelState.BOTTOM)
+              } else {
+                this.slidingUpPanelController.updateLayoutState(SlidingUpPanelState.MIDDLE)
+              }
+            })
+          }.width("100%").height(200).justifyContent(FlexAlign.Center).alignItems(HorizontalAlign.Center)
         }
           ListItemGroup({ header: this.itemHead("header"),space:5}){
         ForEach(this.listItemData,(item,index)=>{
@@ -72,7 +79,6 @@ struct Index {
         return { offsetRemain: this.slidingUpPanelState===SlidingUpPanelState.TOP&&this.slidOffsetY==0 ? offset: -1 };
       }).onTouch((event:TouchEvent)=>{
         if(event.type == TouchType.Move) {
-        //  Logger.debug("this.slidOffsetY:"+this.slidOffsetY +","+this.listScroll.currentOffset().yOffset);
           if(this.listScroll.currentOffset().yOffset<=0.1) {
             this.isMove = true;
           } else {
@@ -88,12 +94,10 @@ struct Index {
    */
   @Builder
   private bottomLayout() {
-    Text("底层布局")
-    Text("底层布局")
-    Text("底层布局")
-    Column() {
-      Text("底层布局")
-    }.width("100%").height("100%");
+     Stack(){
+       Image($r("app.media.girl_01")).height("100%").width("100%")
+       Image($r("app.media.girl_02")).height("100%").width("100%").opacity(MathUtils.percentageCalculator(300,600,this.slidOffsetY))
+     }
   }
 
 

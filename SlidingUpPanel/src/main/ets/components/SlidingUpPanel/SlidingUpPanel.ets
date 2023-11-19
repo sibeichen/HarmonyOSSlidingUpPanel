@@ -13,6 +13,7 @@
  * limitations under the License.
  */
 import { SlidingUpPanelConfigurator } from './SlidingUpPanelConfigurator';
+import { SlidingUpPanelController } from './SlidingUpPanelController';
 import { SlidingUpPanelState } from './SlidingUpPanelState';
 
 
@@ -21,6 +22,7 @@ import { SlidingUpPanelState } from './SlidingUpPanelState';
 @Component
 export struct  SlidingUpPanel {
   configurator?: SlidingUpPanelConfigurator;
+  controller?: SlidingUpPanelController = null;
   @State private mHeight:number = 0;
   private startOffsetY:number = 0; //记录手势开始的y偏移量
   private startSlideTime:number;   //开始滑动时间
@@ -42,8 +44,11 @@ export struct  SlidingUpPanel {
     if(!this.configurator) {
       this.configurator = new SlidingUpPanelConfigurator();
     }
+    if(this.controller) {
+      this.controller.attach(this);
+    }
   }
-  updateLayoutStateValue(layoutState:SlidingUpPanelState):void{
+  updateLayoutState(layoutState:SlidingUpPanelState):void{
     this.animationDuration = this.configurator.slidAnimationDuration;
     this.layoutState = layoutState
     if(this.stateCallback !== undefined && this.stateCallback !== null) {
@@ -114,26 +119,26 @@ export struct  SlidingUpPanel {
             this.animationDuration =  this.configurator.slidAnimationDuration;
             if(this.startOffsetY > 0  ) {
               if(this.layoutState == SlidingUpPanelState.TOP) {
-                this.updateLayoutStateValue(SlidingUpPanelState.MIDDLE);
+                this.updateLayoutState(SlidingUpPanelState.MIDDLE);
               } else  if(this.layoutState ==SlidingUpPanelState.MIDDLE) {
-                this.updateLayoutStateValue(SlidingUpPanelState.BOTTOM);
+                this.updateLayoutState(SlidingUpPanelState.BOTTOM);
               }
             } else {
               if(this.layoutState == SlidingUpPanelState.BOTTOM) {
-                this.updateLayoutStateValue(SlidingUpPanelState.MIDDLE);
+                this.updateLayoutState(SlidingUpPanelState.MIDDLE);
               } else  if(this.layoutState == SlidingUpPanelState.MIDDLE) {
-                this.updateLayoutStateValue(SlidingUpPanelState.TOP);
+                this.updateLayoutState(SlidingUpPanelState.TOP);
               }
             }
             this.startSlideTime = endSlideTime;
           } else {
 
             if(this.positionOffsetY<this.panelPositionYArray[SlidingUpPanelState.MIDDLE]-this.checkOffset) {
-              this.updateLayoutStateValue(SlidingUpPanelState.TOP);
+              this.updateLayoutState(SlidingUpPanelState.TOP);
             }else if(this.positionOffsetY<this.panelPositionYArray[SlidingUpPanelState.MIDDLE]+this.checkOffset) {
-              this.updateLayoutStateValue(SlidingUpPanelState.MIDDLE);
+              this.updateLayoutState(SlidingUpPanelState.MIDDLE);
             } else {
-              this.updateLayoutStateValue(SlidingUpPanelState.BOTTOM);
+              this.updateLayoutState(SlidingUpPanelState.BOTTOM);
             }
           }
           this.startOffsetY = 0;
@@ -145,7 +150,7 @@ export struct  SlidingUpPanel {
       this.panelPositionYArray = [this.mHeight*this.configurator.panelPositionYWeightArray[0],
         this.mHeight*this.configurator.panelPositionYWeightArray[1],
         this.mHeight*this.configurator.panelPositionYWeightArray[2]];
-      this.updateLayoutStateValue(this.configurator.initState);
+      this.updateLayoutState(this.configurator.initState);
       this.checkOffset = this.mHeight/8;
 
     })
