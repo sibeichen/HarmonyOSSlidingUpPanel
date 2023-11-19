@@ -6,7 +6,10 @@ HarmonyOSSlidingUpPanel是一个可以上下拖动的面板布局，可以利用
 
 #### 使用说明
 
-1.  xxxx
+1.  布局区域划分
+
+
+
 2.  xxxx
 3.  xxxx
 
