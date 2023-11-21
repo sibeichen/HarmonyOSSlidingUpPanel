@@ -26,7 +26,12 @@ export class  SlidingUpPanelController {
     if(this.slidingUpPanel) {
       this.slidingUpPanel.updateLayoutState(state);
     }
+  }
 
-}
+  setSlideEnable(flag:boolean):void {
+    if(this.slidingUpPanel) {
+      this.slidingUpPanel.setSlideEnable(flag);
+    }
+  }
 
 }

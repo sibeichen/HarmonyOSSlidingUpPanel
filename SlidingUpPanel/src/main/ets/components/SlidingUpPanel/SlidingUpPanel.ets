@@ -27,7 +27,7 @@ export struct  SlidingUpPanel {
   private startOffsetY:number = 0; //记录手势开始的y偏移量
   private startSlideTime:number;   //开始滑动时间
   private animationDuration:number = 0;
-  @Prop private isMove:boolean;  //如果是列表是否置顶，置顶的话才可以向下拉动上层面板布局
+  private isMove:boolean = true;  //如果是列表是否置顶，置顶的话才可以向下拉动上层面板布局
   @State positionOffsetY:number = 0  //滑动布局实时变化坐标 屏幕左上角为x:0 y:0
   @BuilderParam bottomLayout?: (() => void) | null = null;
   @BuilderParam upLayout?:(() => void) | null = null;
@@ -40,6 +40,9 @@ export struct  SlidingUpPanel {
 
   layoutState:SlidingUpPanelState = SlidingUpPanelState.MIDDLE;
 
+  setSlideEnable(flag:boolean):void {
+    this.isMove = flag;
+  }
   aboutToAppear() {
     if(!this.configurator) {
       this.configurator = new SlidingUpPanelConfigurator();

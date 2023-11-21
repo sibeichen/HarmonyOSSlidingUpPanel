@@ -1,11 +1,11 @@
-import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState,SlidingUpPanelController} from '@chensibei/slidinguppanel'
+import { SlidingUpPanelConfigurator, SlidingUpPanel,SlidingUpPanelState,SlidingUpPanelController} from '@ironbrothers/slidinguppanel'
 import Logger from '../common/utils/Logger';
 import { MathUtils } from '../common/utils/MathUtils';
 
 @Entry
 @Component
 struct Index {
-  @State isMove: boolean = true;
+  // @State isMove: boolean = true;
   @State layoutState: boolean = true;
   @State listItemData:string[] = ["a","b","c","d","e","f","g","h","i","j","k","l","m","aa","bb","cc","dd","ee","ff","gg","hh","ii","jj","kk","ll","mm"]
 
@@ -24,7 +24,7 @@ struct Index {
 
   build() {
    Column(){
-     SlidingUpPanel({isMove:this.isMove,configurator:this.configurator,controller:this.slidingUpPanelController,
+     SlidingUpPanel({configurator:this.configurator,controller:this.slidingUpPanelController,
        bottomLayout:()=>{
          //自定义底层布局   @Builder
       this.bottomLayout();
@@ -80,9 +80,9 @@ struct Index {
       }).onTouch((event:TouchEvent)=>{
         if(event.type == TouchType.Move) {
           if(this.listScroll.currentOffset().yOffset<=0.1) {
-            this.isMove = true;
+            this.slidingUpPanelController.setSlideEnable(true);
           } else {
-            this.isMove = false;
+            this.slidingUpPanelController.setSlideEnable(false);
           }
         }
       }).layoutWeight(1).sticky(StickyStyle.Header)
